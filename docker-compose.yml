@@ -5,6 +5,7 @@ services:
   wakeonmc:
     image: ghcr.io/yannikmg/wakeonlan:latest
     container_name: wakeonmc
+    network_mode: "host"
     ports:
       - 3000:3000
     environment:
