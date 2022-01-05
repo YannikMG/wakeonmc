@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source https://github.com/yannikmg/wakeonmc
 WORKDIR /app
 ADD src/ .
 
-RUN apt update && apt install -y wakeonlan
+RUN apt update && apt install -y wakeonlan openssh-client
 
 RUN npm install
 

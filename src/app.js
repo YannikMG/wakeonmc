@@ -15,7 +15,7 @@ const sshFile = '/ssh/identity';
 
 if (typeof host !== 'undefined' && host) {
     app.get('/shutdown', (req, res) => {
-        exec(`ssh -i ${sshFile} root@${host} shutdown now`, (error, stdout, stderr) => {
+        exec(`ssh -oStrictHostKeyChecking=accept-new -i ${sshFile} root@${host} shutdown now`, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
