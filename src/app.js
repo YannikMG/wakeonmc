@@ -18,15 +18,17 @@ if (typeof host !== 'undefined' && host) {
         exec(`ssh -oStrictHostKeyChecking=accept-new -i ${sshFile} root@${host} shutdown now`, (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
+                res.send("There was an error while trying to shutdown the Server please contact the administrator!");
                 return;
             }
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
+                res.send("There was an error while trying to shutdown the Server please contact the administrator!");
                 return;
             }
             console.log(`stdout: ${stdout}`);
+            res.send("Shutdown went successfuly!");
         });
-        res.sendStatus(200);
     });
 }
 
