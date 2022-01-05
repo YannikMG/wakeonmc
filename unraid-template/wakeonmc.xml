@@ -21,18 +21,13 @@
   <DonateText/>
   <DonateLink/>
   <Description>This is a simple redirect page i made for a friend of mine in node.js that uses WakeOnLan to that his PC can power up and redirect it to the Pterodactyl landing page</Description>
-  <Networking>
-    <Mode>host</Mode>
-    <Publish>
-      <Port>
-        <HostPort>3000</HostPort>
-        <ContainerPort>3000</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
   <Data/>
   <Environment>
+    <Variable>
+      <Value>3000</Value>
+      <Name>PORT</Name>
+      <Mode/>
+    </Variable>
     <Variable>
       <Value>10.10.0.255</Value>
       <Name>BROADCAST</Name>
@@ -50,7 +45,7 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Web Port" Target="3000" Default="3000" Mode="tcp" Description="Container Port: 3000" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="Web Port" Target="PORT" Default="3000" Mode="" Description="Container Port: 3000" Type="Variable" Display="always" Required="true" Mask="false">3000</Config>
   <Config Name="Broadcast IP" Target="BROADCAST" Default="10.10.0.255" Mode="" Description="Container Variable: BROADCAST" Type="Variable" Display="always" Required="true" Mask="false">10.10.0.255</Config>
   <Config Name="Mac Address of PC" Target="MACADDRESS" Default="00:00:00:00:00:00" Mode="" Description="Container Variable: MACADDRESS" Type="Variable" Display="always" Required="true" Mask="false">00:00:00:00:00:00</Config>
   <Config Name="Redirect to Page" Target="REDIRECTWEBPAGE" Default="https://www.google.com/" Mode="" Description="Container Variable: REDIRECTWEBPAGE" Type="Variable" Display="always" Required="true" Mask="false">https://www.google.com/</Config>
