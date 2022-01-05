@@ -12,5 +12,6 @@ RUN npm install
 ENV BROADCAST 10.10.0.255
 ENV MACADDRESS 00:00:00:00:00:00
 ENV REDIRECTWEBPAGE https://www.google.com/
+ENV PORT 3000
 
 CMD ["node", "app.js"]

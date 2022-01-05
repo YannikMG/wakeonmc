@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 const { stringReplace } = require('string-replace-middleware');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const broadcast = process.env.BROADCAST || '10.10.0.255';
 const macaddress = process.env.MACADDRESS || '00:00:00:00:00:00';
