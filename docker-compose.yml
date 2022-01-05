@@ -6,11 +6,11 @@ services:
     image: ghcr.io/yannikmg/wakeonlan:latest
     container_name: wakeonmc
     network_mode: "host"
-    ports:
-      - 3000:3000
     environment:
       - BROADCAST=10.10.0.255
       - MACADDRESS=00:00:00:00:00:00
       - REDIRECTWEBPAGE=http://www.google.com/
+      - PORT=3000
+      - TIMETOREDIRECT=7
     restart: unless-stopped
     

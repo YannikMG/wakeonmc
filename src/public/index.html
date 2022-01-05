@@ -45,7 +45,7 @@
             <div class="dot-pulse mb-3"></div>
 
             <h4 class="text-uppercase font-weight-bold">Loading</h4>
-            <p class="font-italic text-muted">You will be redirected to the Minecraft Panel after <strong class="countdown text-light font-weight-bold">7 </strong> Seconds</p>
+            <p class="font-italic text-muted">You will be redirected to the Minecraft Panel after <strong class="countdown text-light font-weight-bold">timeToRedirect </strong> Seconds</p>
 
         </div>
     </div>
@@ -60,7 +60,7 @@
             httpGet(window.location.origin + "/send");
             setTimeout(function() {
                 window.location.href = "redirectWebpage";
-            }, 7000);
+            }, timeToRedirect000);
 
             var loadingCounter = setInterval(function() {
                 var count = parseInt($('.countdown').html());

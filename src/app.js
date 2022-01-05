@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 const broadcast = process.env.BROADCAST || '10.10.0.255';
 const macaddress = process.env.MACADDRESS || '00:00:00:00:00:00';
 const redirectWebpage = process.env.REDIRECTWEBPAGE || 'https://www.google.com/';
+const timeToRedirect = process.env.TIMETOREDIRECT || 7;
 
 app.get('/send', (req, res) => {
     exec(`wakeonlan -i ${broadcast} ${macaddress}`, (error, stdout, stderr) => {
@@ -27,6 +28,7 @@ app.get('/send', (req, res) => {
 
 app.use(stringReplace({
     'redirectWebpage': redirectWebpage,
+    'timeToRedirect': timeToRedirect,
 }))
 app.use(express.static('public'));
 

@@ -43,10 +43,16 @@
       <Name>REDIRECTWEBPAGE</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>7</Value>
+      <Name>TIMETOREDIRECT</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Web Port" Target="PORT" Default="3005" Mode="" Description="Container Port: 3005" Type="Variable" Display="always" Required="true" Mask="false">3005</Config>
-  <Config Name="Broadcast IP" Target="BROADCAST" Default="10.10.0.255" Mode="" Description="Container Variable: BROADCAST" Type="Variable" Display="always" Required="true" Mask="false">10.10.0.255</Config>
-  <Config Name="Mac Address of PC" Target="MACADDRESS" Default="00:00:00:00:00:00" Mode="" Description="Container Variable: MACADDRESS" Type="Variable" Display="always" Required="true" Mask="false">00:00:00:00:00:00</Config>
-  <Config Name="Redirect to Page" Target="REDIRECTWEBPAGE" Default="https://www.google.com/" Mode="" Description="Container Variable: REDIRECTWEBPAGE" Type="Variable" Display="always" Required="true" Mask="false">https://www.google.com/</Config>
+  <Config Name="Web Port" Target="PORT" Default="3005" Mode="" Description="Web Port" Type="Variable" Display="always" Required="true" Mask="false">3005</Config>
+  <Config Name="Broadcast IP" Target="BROADCAST" Default="10.10.0.255" Mode="" Description="Sets the Network Broadcast to use for WakeOnLan" Type="Variable" Display="always" Required="true" Mask="false">10.10.0.255</Config>
+  <Config Name="Mac Address of PC" Target="MACADDRESS" Default="00:00:00:00:00:00" Mode="" Description="Sets the Mac Address for the PC to Wake Up" Type="Variable" Display="always" Required="true" Mask="false">00:00:00:00:00:00</Config>
+  <Config Name="Redirect to Page" Target="REDIRECTWEBPAGE" Default="https://www.google.com/" Mode="" Description="Sets the redirect page" Type="Variable" Display="always" Required="true" Mask="false">https://www.google.com/</Config>
+  <Config Name="Time until Redirect" Target="TIMETOREDIRECT" Default="7" Mode="" Description="Time until the Webpage redirects to the desired redirect page" Type="Variable" Display="always" Required="true" Mask="false">7</Config>
 </Container>
