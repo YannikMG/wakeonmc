@@ -23,7 +23,7 @@ if (typeof host !== 'undefined' && host) {
             }
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
-                res.send("There was an error while trying to shutdown the Server please contact the administrator!");
+                res.send("Shutdown went successfuly!");
                 return;
             }
             console.log(`stdout: ${stdout}`);
