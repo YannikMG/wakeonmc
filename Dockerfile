@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:slim
 
 LABEL org.opencontainers.image.source https://github.com/yannikmg/wakeonmc
 
