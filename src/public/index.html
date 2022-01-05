@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- generics -->
+    <link rel="icon" href="favicons/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="favicons/favicon-57.png" sizes="57x57">
+    <link rel="icon" href="favicons/favicon-76.png" sizes="76x76">
+    <link rel="icon" href="favicons/favicon-96.png" sizes="96x96">
+    <link rel="icon" href="favicons/favicon-128.png" sizes="128x128">
+    <link rel="icon" href="favicons/favicon-192.png" sizes="192x192">
+    <link rel="icon" href="favicons/favicon-228.png" sizes="228x228">
+
+    <!-- Android -->
+    <link rel="shortcut icon" sizes="196x196" href="favicons/favicon-196.png">
+
+    <!-- iOS -->
+    <link rel="apple-touch-icon" href="favicons/favicon-120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="favicons/favicon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="favicons/favicon-180.png" sizes="180x180">
+
+    <!-- Windows 8 IE 10-->
+    <meta name="msapplication-TileColor" content="#32404E">
+    <meta name="msapplication-TileImage" content="favicons/favicon-144.png">
+
+    <!-- Windows 8.1 + IE11 and above -->
+    <meta name="msapplication-config" content="favicons/browserconfig.xml" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css " rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
+    <title>The Minecraft Server is currently starting...</title>
+</head>
+
+<body>
+    <div class="loader text-center">
+        <div class="loader-inner">
+
+            <div class="dot-pulse mb-3"></div>
+
+            <h4 class="text-uppercase font-weight-bold">Loading</h4>
+            <p class="font-italic text-muted">You will be redirected to the Minecraft Panel after <strong class="countdown text-light font-weight-bold">7 </strong> Seconds</p>
+
+        </div>
+    </div>
+    <script>
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false);
+            xmlHttp.send();
+        }
+
+        $(document).ready(function() {
+            httpGet(window.location.origin + "/send");
+            setTimeout(function() {
+                window.location.href = "redirectWebpage";
+            }, 7000);
+
+            var loadingCounter = setInterval(function() {
+                var count = parseInt($('.countdown').html());
+                if (count !== 0) {
+                    $('.countdown').html(count - 1);
+                } else {
+                    clearInterval();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
