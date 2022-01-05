@@ -21,7 +21,13 @@
   <DonateText/>
   <DonateLink/>
   <Description>This is a simple redirect page i made for a friend of mine in node.js that uses WakeOnLan to that his PC can power up and redirect it to the Pterodactyl landing page</Description>
-  <Data/>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/Share</HostDir>
+      <ContainerDir>/ssh/identity</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
   <Environment>
     <Variable>
       <Value>3005</Value>
@@ -48,6 +54,11 @@
       <Name>TIMETOREDIRECT</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>localhost</Value>
+      <Name>HOST</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
   <Config Name="Web Port" Target="PORT" Default="3005" Mode="" Description="Web Port" Type="Variable" Display="always" Required="true" Mask="false">3005</Config>
@@ -55,4 +66,6 @@
   <Config Name="Mac Address of PC" Target="MACADDRESS" Default="00:00:00:00:00:00" Mode="" Description="Sets the Mac Address for the PC to Wake Up" Type="Variable" Display="always" Required="true" Mask="false">00:00:00:00:00:00</Config>
   <Config Name="Redirect to Page" Target="REDIRECTWEBPAGE" Default="https://www.google.com/" Mode="" Description="Sets the redirect page" Type="Variable" Display="always" Required="true" Mask="false">https://www.google.com/</Config>
   <Config Name="Time until Redirect" Target="TIMETOREDIRECT" Default="7" Mode="" Description="Time until the Webpage redirects to the desired redirect page" Type="Variable" Display="always" Required="true" Mask="false">7</Config>
+  <Config Name="Hostname for SSH" Target="HOST" Default="localhost" Mode="" Description="Sets the Hostname for the Shutdown command" Type="Variable" Display="always" Required="false" Mask="false">localhost</Config>
+  <Config Name="SSH Identity File" Target="/ssh/identity" Default="/mnt/user/Share" Mode="ro" Description="Sets the SSH Identity file for ssh shutdown" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/Share</Config>
 </Container>

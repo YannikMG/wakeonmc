@@ -14,5 +14,6 @@ ENV MACADDRESS 00:00:00:00:00:00
 ENV REDIRECTWEBPAGE https://www.google.com/
 ENV PORT 3000
 ENV TIMETOREDIRECT 7
+ENV HOST localhost
 
 CMD ["node", "app.js"]

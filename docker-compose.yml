@@ -6,11 +6,14 @@ services:
     image: ghcr.io/yannikmg/wakeonlan:latest
     container_name: wakeonmc
     network_mode: "host"
+    volumes:
+      - /mnt/user/Share/identity:/ssh/identity:ro
     environment:
       - BROADCAST=10.10.0.255
       - MACADDRESS=00:00:00:00:00:00
       - REDIRECTWEBPAGE=http://www.google.com/
       - PORT=3000
       - TIMETOREDIRECT=7
+      - HOST=localhost
     restart: unless-stopped
     
