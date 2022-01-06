@@ -23,11 +23,11 @@ if (typeof host !== 'undefined' && host) {
             }
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
-                res.send("Shutdown went successfuly!");
+                res.sendFile('public/shutdown.html');
                 return;
             }
             console.log(`stdout: ${stdout}`);
-            res.send("Shutdown went successfuly!");
+            res.sendFile('public/shutdown.html');
         });
     });
 }
