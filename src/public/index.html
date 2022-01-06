@@ -56,18 +56,33 @@
             xmlHttp.send('*');
         }
 
-        function httpGet2(theUrl) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", theUrl, false);
-            xmlHttp.send('*');
-            return xmlHttp.status;
+        function makeRequest(method, url) {
+            return new Promise(function(resolve, reject) {
+                let xhr = new XMLHttpRequest();
+                xhr.open(method, url);
+                xhr.onload = function() {
+                    if (this.status >= 200 && this.status < 300) {
+                        resolve(xhr.response);
+                    } else {
+                        reject({
+                            status: this.status,
+                            statusText: xhr.statusText
+                        });
+                    }
+                };
+                xhr.onerror = function() {
+                    reject({
+                        status: this.status,
+                        statusText: xhr.statusText
+                    });
+                };
+                xhr.send();
+            });
         }
 
         $(document).ready(function() {
             httpGet(window.location.origin + "/send");
-            if (httpGet2(window.location.origin + "/check") === 200) {
-                window.location.href = "redirectWebpage";
-            }
+            checkIfOnline();
             setTimeout(function() {
                 window.location.href = "redirectWebpage";
             }, timeToRedirect000);
@@ -80,6 +95,14 @@
                     clearInterval();
                 }
             }, 1000);
+
+            async function checkIfOnline() {
+                let httpResult = await makeRequest("GET", window.location.origin + "/check")
+
+                if (httpResult === 200) {
+                    window.location.href = "redirectWebpage";
+                }
+            }
         });
     </script>
 </body>
