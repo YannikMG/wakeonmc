@@ -99,7 +99,7 @@
             async function checkIfOnline() {
                 let httpResult = await makeRequest("GET", window.location.origin + "/check")
 
-                if (httpResult === 200) {
+                if (httpResult === 'OK') {
                     window.location.href = "redirectWebpage";
                 }
             }
