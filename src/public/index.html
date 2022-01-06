@@ -53,11 +53,21 @@
         function httpGet(theUrl) {
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("GET", theUrl, false);
-            xmlHttp.send();
+            xmlHttp.send('*');
+        }
+
+        function httpGet2(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false);
+            xmlHttp.send('*');
+            return xmlHttp.status;
         }
 
         $(document).ready(function() {
             httpGet(window.location.origin + "/send");
+            if (httpGet2(window.location.origin + "/check") === 200) {
+                window.location.href = "redirectWebpage";
+            }
             setTimeout(function() {
                 window.location.href = "redirectWebpage";
             }, timeToRedirect000);
