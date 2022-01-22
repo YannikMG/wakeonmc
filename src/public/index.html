@@ -82,7 +82,6 @@
 
         $(document).ready(function() {
             httpGet(window.location.origin + "/send");
-            checkIfOnline();
             setTimeout(function() {
                 window.location.href = "redirectWebpage";
             }, timeToRedirect000);
@@ -96,8 +95,12 @@
                 }
             }, 1000);
 
+            var constantCheckIfOnline = setInterval(function() {
+                checkIfOnline();
+            }, 3000);
+
             async function checkIfOnline() {
-                let httpResult = await makeRequest("GET", window.location.origin + "/check")
+                let httpResult = await makeRequest("GET", window.location.origin + "/check");
 
                 if (httpResult === 'OK') {
                     window.location.href = "redirectWebpage";

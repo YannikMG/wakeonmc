@@ -65,20 +65,9 @@ app.get('/send', (req, res) => {
 });
 
 app.get('/check', (req, res) => {
-    exec(`nc -vz ${host} 22`, (error, stdout, stderr) => {
-        if (error) {
-            // The PC is off
-            console.log(`error: ${error.message}`);
-            res.sendStatus(502);
-            return;
-        }
-        if (stderr) {
-            // The PC is still on
-            console.log(`stderr: ${stderr}`);
-            res.sendStatus(200);
-            return;
-        }
+    exec(`curl -o -I -L -s -w "%{http_code}" ${redirectWebpage} | tail -1`, (error, stdout, stderr) => {
         console.log(`stdout: ${stdout}`);
+        res.sendStatus(stdout);
     });
 });
 
